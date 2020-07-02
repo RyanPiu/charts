@@ -19,6 +19,7 @@ configVars:
   DRUID_NEWSIZE: 250m
   DRUID_MAXDIRECTMEMORYSIZE: 10000m
   DRUID_USE_CONTAINER_IP: "true"
+  AWS_REGION: cn-northwest-1
   druid_processing_numThreads: "3"
   druid_extensions_loadList: '["mysql-metadata-storage","druid-s3-extensions","druid-kafka-indexing-service"]'
   druid_metadata_storage_type: mysql
