@@ -198,7 +198,7 @@ historical:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: "4Gi"
+    size: "40Gi"
     # storageClass: "ssd"
 
   antiAffinity: "soft"
@@ -276,7 +276,7 @@ middleManager:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: "4Gi"
+    size: "40Gi"
     # storageClass: "ssd"
 
   antiAffinity: "soft"
