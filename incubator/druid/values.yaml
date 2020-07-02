@@ -17,12 +17,11 @@ configVars:
   DRUID_XMS: 1g
   DRUID_MAXNEWSIZE: 250m
   DRUID_NEWSIZE: 250m
-  DRUID_MAXDIRECTMEMORYSIZE: 3g
+  DRUID_MAXDIRECTMEMORYSIZE: 10000m
   DRUID_USE_CONTAINER_IP: "true"
   druid_processing_numThreads: "3"
   druid_extensions_loadList: '["mysql-metadata-storage","druid-s3-extensions","druid-kafka-indexing-service"]'
   druid_metadata_storage_type: mysql
-  druid_processing_buffer_sizeBytes: "1073741824"
   druid_metadata_storage_connector_connectURI: jdbc:mysql://mysql.aws.k8s.test.lemonbox.com.cn:3306/lemonbox?useUnicode=true&characterEncoding=utf-8&useSSL=false
   druid_metadata_storage_connector_user: lemonbox
   druid_metadata_storage_connector_password: Lemonbox2020
@@ -56,7 +55,7 @@ broker:
   serviceType: ClusterIP
 
   config:
-    JAVA_OPTS: "-Xms2G -Xmx2G -XX:MaxDirectMemorySize=3g"
+    JAVA_OPTS: "-Xms2G -Xmx2G -XX:MaxDirectMemorySize=8g"
     # druid_monitoring_monitors: '["org.apache.druid.client.cache.CacheMonitor", "org.apache.druid.server.metrics.QueryCountStatsMonitor"]'
 
   ingress:
@@ -75,10 +74,10 @@ broker:
   resources: 
     limits:
       cpu: 1
-      memory: 5Gi
+      memory: 8Gi
     requests:
       cpu: 1
-      memory: 5Gi
+      memory: 8Gi
 
   nodeSelector: {}
 
@@ -117,10 +116,10 @@ coordinator:
   resources: 
     limits:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
     requests:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
 
   nodeSelector: {}
 
@@ -157,10 +156,10 @@ overlord:
   resources: 
     limits:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
     requests:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
 
   nodeSelector: {}
 
@@ -180,7 +179,7 @@ historical:
   serviceType: ClusterIP
 
   config:
-    JAVA_OPTS: "-Xms2G -Xmx2G -XX:MaxDirectMemorySize=3g"
+    JAVA_OPTS: "-Xms2G -Xmx2G -XX:MaxDirectMemorySize=8g"
     # druid_monitoring_monitors: '["org.apache.druid.client.cache.CacheMonitor", "org.apache.druid.server.metrics.HistoricalMetricsMonitor", "org.apache.druid.server.metrics.QueryCountStatsMonitor"]'
 
   ingress:
@@ -199,7 +198,7 @@ historical:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: "40Gi"
+    size: "4Gi"
     # storageClass: "ssd"
 
   antiAffinity: "soft"
@@ -213,10 +212,10 @@ historical:
   resources: 
     limits:
       cpu: 1
-      memory: 5Gi
+      memory: 8Gi
     requests:
       cpu: 1
-      memory: 5Gi
+      memory: 8Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
@@ -277,7 +276,7 @@ middleManager:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: "40Gi"
+    size: "4Gi"
     # storageClass: "ssd"
 
   antiAffinity: "soft"
@@ -291,10 +290,10 @@ middleManager:
   resources: 
     limits:
       cpu: 500m
-      memory: 1Gi
-    requests:
+      memory: 2Gi
+    limits:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
@@ -336,10 +335,10 @@ router:
   resources: 
     limits:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
     requests:
       cpu: 500m
-      memory: 1Gi
+      memory: 2Gi
 
   nodeSelector: {}
 
