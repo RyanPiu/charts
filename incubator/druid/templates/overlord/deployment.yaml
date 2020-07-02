@@ -33,7 +33,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["sh", "-c", "wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar;\
           cp mysql-connector-java-5.1.48.jar extensions/mysql-metadata-storage;\
-        /druid.sh coordinator"]
+        /druid.sh overlord"]
           env:
           {{- range $key, $val := .Values.overlord.config }}
           - name: {{ $key }}
