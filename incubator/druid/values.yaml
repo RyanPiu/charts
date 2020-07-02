@@ -179,7 +179,7 @@ historical:
   serviceType: ClusterIP
 
   config:
-    JAVA_OPTS: "-Xms2G -Xmx2G -XX:MaxDirectMemorySize=8g"
+    JAVA_OPTS: "-Xms1G -Xmx1G -XX:MaxDirectMemorySize=1g"
     # druid_monitoring_monitors: '["org.apache.druid.client.cache.CacheMonitor", "org.apache.druid.server.metrics.HistoricalMetricsMonitor", "org.apache.druid.server.metrics.QueryCountStatsMonitor"]'
 
   ingress:
@@ -198,7 +198,7 @@ historical:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: "4Gi"
+    size: "40Gi"
     # storageClass: "ssd"
 
   antiAffinity: "soft"
@@ -276,7 +276,7 @@ middleManager:
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
-    size: "4Gi"
+    size: "40Gi"
     # storageClass: "ssd"
 
   antiAffinity: "soft"
