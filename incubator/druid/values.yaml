@@ -346,7 +346,7 @@ router:
 # Zookeeper:
 # ------------------------------------------------------------------------------
 
-zkHosts: zk-cs:2181/druid
+zkHosts: zk-cs.default:2181/druid
 
 zookeeper:
   enabled: false
