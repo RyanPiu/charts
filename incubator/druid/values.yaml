@@ -74,10 +74,10 @@ broker:
   resources: 
     limits:
       cpu: 1
-      memory: 8Gi
+      memory: 2Gi
     requests:
-      cpu: 250m
-      memory: 4Gi
+      cpu: 1
+      memory: 2Gi
 
   nodeSelector: {}
 
@@ -116,10 +116,10 @@ coordinator:
   resources: 
     limits:
       cpu: 500m
-      memory: 2Gi
+      memory: 1Gi
     requests:
-      cpu: 250m
-      memory: 512Mi
+      cpu: 500m
+      memory: 1Gi
 
   nodeSelector: {}
 
@@ -156,10 +156,10 @@ overlord:
   resources: 
     limits:
       cpu: 500m
-      memory: 2Gi
+      memory: 1Gi
     requests:
-      cpu: 250m
-      memory: 512Mi
+      cpu: 500m
+      memory: 1Gi
 
   nodeSelector: {}
 
@@ -212,10 +212,10 @@ historical:
   resources: 
     limits:
       cpu: 1
-      memory: 8Gi
+      memory: 2Gi
     requests:
-      cpu: 250m
-      memory: 4Gi
+      cpu: 1
+      memory: 2Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
@@ -290,10 +290,10 @@ middleManager:
   resources: 
     limits:
       cpu: 500m
-      memory: 2Gi
+      memory: 1Gi
     requests:
-      cpu: 250m
-      memory: 512Mi
+      cpu: 500m
+      memory: 1Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
@@ -335,10 +335,10 @@ router:
   resources: 
     limits:
       cpu: 500m
-      memory: 2Gi
+      memory: 1Gi
     requests:
-      cpu: 250m
-      memory: 512Mi
+      cpu: 500m
+      memory: 1Gi
 
   nodeSelector: {}
 
