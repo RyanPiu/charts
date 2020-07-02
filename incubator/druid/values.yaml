@@ -71,13 +71,13 @@ broker:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
-    # limits:
-    #   cpu: 1
-    #   memory: 8Gi
-    # requests:
-    #   cpu: 250m
-    #   memory: 4Gi
+  resources: 
+    limits:
+      cpu: 1
+      memory: 8Gi
+    requests:
+      cpu: 250m
+      memory: 4Gi
 
   nodeSelector: {}
 
@@ -113,13 +113,13 @@ coordinator:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
-    # limits:
-    #   cpu: 500m
-    #   memory: 2Gi
-    # requests:
-    #   cpu: 250m
-    #   memory: 512Mi
+  resources: 
+    limits:
+      cpu: 500m
+      memory: 2Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
 
   nodeSelector: {}
 
@@ -132,7 +132,7 @@ coordinator:
 overlord:
   ## If true, the separate overlord will be installed
   ##
-  enabled: false
+  enabled: true
   name: overlord
   replicaCount: 1
   port: 8081
@@ -153,7 +153,13 @@ overlord:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources: 
+    limits:
+      cpu: 500m
+      memory: 2Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
 
   nodeSelector: {}
 
@@ -203,13 +209,13 @@ historical:
 
   tolerations: []
 
-  resources: {}
-    # limits:
-    #   cpu: 1
-    #   memory: 8Gi
-    # requests:
-    #   cpu: 250m
-    #   memory: 4Gi
+  resources: 
+    limits:
+      cpu: 1
+      memory: 8Gi
+    requests:
+      cpu: 250m
+      memory: 4Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
@@ -281,13 +287,13 @@ middleManager:
 
   tolerations: []
 
-  resources: {}
-    # limits:
-    #   cpu: 500m
-    #   memory: 2Gi
-    # requests:
-    #   cpu: 250m
-    #   memory: 512Mi
+  resources: 
+    limits:
+      cpu: 500m
+      memory: 2Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
@@ -326,13 +332,13 @@ router:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
-    # limits:
-    #   cpu: 500m
-    #   memory: 2Gi
-    # requests:
-    #   cpu: 250m
-    #   memory: 512Mi
+  resources: 
+    limits:
+      cpu: 500m
+      memory: 2Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
 
   nodeSelector: {}
 
