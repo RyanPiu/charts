@@ -20,7 +20,7 @@ configVars:
   DRUID_MAXDIRECTMEMORYSIZE: 10000m
   DRUID_USE_CONTAINER_IP: "true"
   druid_processing_numThreads: "3"
-  druid_extensions_loadList: '["mysql-metadata-storage"]'
+  druid_extensions_loadList: '["mysql-metadata-storage","druid-s3-extensions"]'
   druid_metadata_storage_type: mysql
   druid_metadata_storage_connector_connectURI: jdbc:mysql://mysql.aws.k8s.test.lemonbox.com.cn:3306/lemonbox?useUnicode=true&characterEncoding=utf-8&useSSL=false
   druid_metadata_storage_connector_user: lemonbox
