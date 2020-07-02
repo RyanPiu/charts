@@ -347,3 +347,43 @@ router:
 # ------------------------------------------------------------------------------
 
 zkHosts: zk-cs:2181/druid
+
+zookeeper:
+  enabled: false
+  ## Environmental variables to set in Zookeeper
+  ##
+  env:
+    ## The JVM heap size to allocate to Zookeeper
+    ZK_HEAP_SIZE: "512M"
+  ## Configure Zookeeper headless
+  headless:
+    publishNotReadyAddresses: true
+
+
+# ------------------------------------------------------------------------------
+# MySQL:
+# ------------------------------------------------------------------------------
+mysql:
+  enabled: false
+  mysqlRootPassword: druidroot
+  mysqlUser: druid
+  mysqlPassword: druid
+  mysqlDatabase: druid
+  configurationFiles:
+    mysql_collate.cnf: |-
+      [mysqld]
+      character-set-server=utf8
+      collation-server=utf8_unicode_ci
+
+# ------------------------------------------------------------------------------
+# postgres:
+# ------------------------------------------------------------------------------
+postgresql:
+  enabled: false
+  postgresqlUsername: druid
+  postgresqlPassword: druid
+  postgresqlDatabase: druid
+  service:
+    port: 5432
+
+# Secrets
