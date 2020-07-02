@@ -55,7 +55,7 @@ broker:
   serviceType: ClusterIP
 
   config:
-    JAVA_OPTS: "-Xms2G -Xmx2G -XX:MaxDirectMemorySize=8g"
+    JAVA_OPTS: "-Xms1G -Xmx1G -XX:MaxDirectMemorySize=1g"
     # druid_monitoring_monitors: '["org.apache.druid.client.cache.CacheMonitor", "org.apache.druid.server.metrics.QueryCountStatsMonitor"]'
 
   ingress:
@@ -74,10 +74,10 @@ broker:
   resources: 
     limits:
       cpu: 1
-      memory: 2Gi
+      memory: 3Gi
     requests:
       cpu: 1
-      memory: 2Gi
+      memory: 3Gi
 
   nodeSelector: {}
 
@@ -212,10 +212,10 @@ historical:
   resources: 
     limits:
       cpu: 1
-      memory: 2Gi
+      memory: 3Gi
     requests:
       cpu: 1
-      memory: 2Gi
+      memory: 3Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
