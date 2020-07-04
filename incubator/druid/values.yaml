@@ -21,6 +21,8 @@ configVars:
   DRUID_USE_CONTAINER_IP: "true"
   AWS_REGION: cn-northwest-1
   druid_processing_numThreads: "3"
+  druid_server_http_numThreads: 30
+  druid_broker_http_numConnections: 20
   druid_extensions_loadList: '["mysql-metadata-storage","druid-s3-extensions","druid-kafka-indexing-service"]'
   druid_metadata_storage_type: mysql
   druid_metadata_storage_connector_connectURI: jdbc:mysql://mysql.aws.k8s.test.lemonbox.com.cn:3306/lemonbox?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -28,7 +30,9 @@ configVars:
   druid_metadata_storage_connector_password: Lemonbox2020
   druid_coordinator_balancer_strategy: cachingCost
   druid_indexer_runner_javaOptsArray: '["-server", "-Xmx1g", "-Xms1g", "-XX:MaxDirectMemorySize=3g", "-Duser.timezone=UTC", "-Dfile.encoding=UTF-8", "-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager"]'
-  druid_indexer_fork_property_druid_processing_buffer_sizeBytes: '268435456'
+  druid_indexer_fork_property_druid_processing_buffer_sizeBytes: '104857600'
+  druid_indexer_fork_property_druid_processing_numMergeBuffers: '2'
+  druid_indexer_fork_property_druid_processing_numThreads: '2'
   druid_storage_type: s3
   druid_indexer_logs_type: s3
   druid_storage_bucket: lemonbox-druid
@@ -292,10 +296,10 @@ middleManager:
   resources: 
     limits:
       cpu: 500m
-      memory: 2Gi
+      memory: 4Gi
     limits:
       cpu: 500m
-      memory: 2Gi
+      memory: 4Gi
 
   ## (dict) If specified, apply these annotations to each master Pod
   podAnnotations: {}
