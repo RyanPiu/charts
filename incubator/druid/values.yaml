@@ -21,8 +21,8 @@ configVars:
   DRUID_USE_CONTAINER_IP: "true"
   AWS_REGION: cn-northwest-1
   druid_processing_numThreads: "3"
-  druid_server_http_numThreads: 30
-  druid_broker_http_numConnections: 20
+  druid_server_http_numThreads: "30"
+  druid_broker_http_numConnections: "20"
   druid_extensions_loadList: '["mysql-metadata-storage","druid-s3-extensions","druid-kafka-indexing-service"]'
   druid_metadata_storage_type: mysql
   druid_metadata_storage_connector_connectURI: jdbc:mysql://mysql.aws.k8s.test.lemonbox.com.cn:3306/lemonbox?useUnicode=true&characterEncoding=utf-8&useSSL=false
